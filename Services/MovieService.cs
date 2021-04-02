@@ -22,17 +22,5 @@ namespace Contoso.Fabrikam.Web.Services
 
         public Movie Get(string id) =>
             _movies.Find<Movie>(movie => movie.Id == id).FirstOrDefault();
-
-        public Movie Create(Movie movie)
-        {
-            _movies.InsertOne(movie);
-            return movie;
-        }
-
-        public void Update(string id, Movie movieIn) =>
-            _movies.ReplaceOne(movie => movie.Id == id, movieIn);
-
-        public void Remove(string id) => 
-            _movies.DeleteOne(movie => movie.Id == id);
     }
 }
